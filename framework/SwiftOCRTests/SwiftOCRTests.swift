@@ -87,18 +87,8 @@ class SwiftOCRTests: XCTestCase {
         
     }
     
-    func testExtractBlobs() {
-        let ocrInstance = SwiftOCR
-        let preprocessedImage = ocrInstance.preprocessImageForOCR(self.testImageOne)
-        
-        measure({
-            let extractedBlobs = ocrInstance.extractBlobs(preprocessedImage)
-            XCTAssertEqual(extractedBlobs.count, 6)
-        })
-    }
-    
     func testConvertImageToFloatArray() {
-        let ocrInstance = SwiftOCR
+        let ocrInstance = SwiftOCR()
         
         measure({
             let _ = ocrInstance.convertImageToFloatArray(self.testImageOne, resize: false)
@@ -106,18 +96,10 @@ class SwiftOCRTests: XCTestCase {
     }
     
     func testConvertImageToFloatArrayWithResize() {
-        let ocrInstance = SwiftOCR
+        let ocrInstance = SwiftOCR()
         
         measure({
             let _ = ocrInstance.convertImageToFloatArray(self.testImageOne, resize: true)
-        })
-    }
-    
-    func testPreprocessImageForOCR() {
-        let ocrInstance = SwiftOCR
-        
-        measure({
-            let _ = ocrInstance.preprocessImageForOCR(self.testImageOne)
         })
     }
 
