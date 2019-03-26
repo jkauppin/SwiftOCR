@@ -310,12 +310,12 @@
 					373ED0AE1CC9071C00C4758B = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = DG779MAMM2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					373ED0B81CC9071D00C4758B = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 2VE8J8K99V;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					373ED0E51CC909A400C4758B = {
 						CreatedOnToolsVersion = 7.3;
@@ -331,6 +331,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 373ED0A51CC9071C00C4758B;
@@ -590,7 +591,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -615,7 +616,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -627,7 +628,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = camenisch.nicolas.SwiftOCRTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -639,7 +640,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = camenisch.nicolas.SwiftOCRTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
