@@ -364,22 +364,23 @@ open class SwiftOCR {
             
             //Filter blobs
             
+            let minDim = min(imageHeight!, imageWidth)
             let minMaxCorrect = (minX < maxX && minY < maxY)
             
-            let notToTall    = Double(maxY - minY) < Double(imageHeight!) * 0.75
-            let notToWide    = Double(maxX - minX) < Double(imageWidth ) * 0.25
-            let notToShort   = Double(maxY - minY) > Double(imageHeight!) * 0.08
-            let notToThin    = Double(maxX - minX) > Double(imageWidth ) * 0.01
+            let notToTall    = Double(maxY - minY) < Double(minDim) * 0.25 
+            let notToWide    = Double(maxX - minX) < Double(minDim) * 0.25 
+            let notToLow     = Double(maxY - minY) > Double(minDim) * 0.05 
+            let notToThin    = Double(maxX - minX) > Double(minDim) * 0.03 
             
-            let notToSmall   = (maxX - minX)*(maxY - minY) > 100
+            let notToSmall   = (maxX - minX)*(maxY - minY) > 20 
             let positionIsOK = minY != 0 && minX != 0 && maxY != Int(imageHeight! - 1) && maxX != Int(imageWidth - 1)
             let aspectRatio  = Double(maxX - minX) / Double(maxY - minY)
             
-            if minMaxCorrect && notToTall && notToWide && notToShort && notToThin && notToSmall && positionIsOK &&
+            if minMaxCorrect && notToTall && notToWide && notToLow && notToThin && notToSmall && positionIsOK &&
                 aspectRatio < 1 {
                 let labelRect = CGRect(x: CGFloat(CGFloat(minX) - xMergeRadius), y: CGFloat(CGFloat(minY) - yMergeRadius), width: CGFloat(CGFloat(maxX - minX) + 2*xMergeRadius + 1), height: CGFloat(CGFloat(maxY - minY) + 2*yMergeRadius + 1))
                 mergeLabelRects.append(labelRect)
-            } else if minMaxCorrect && notToTall && notToShort && notToThin && notToSmall && positionIsOK && aspectRatio <= 2.5 && aspectRatio >= 1 {
+            } else if minMaxCorrect && notToTall && notToLow && notToThin && notToSmall && positionIsOK && aspectRatio <= 2.5 && aspectRatio >= 1 {
                 
                 // MARK: Connected components: Find thinnest part of connected components
                 
@@ -438,7 +439,7 @@ open class SwiftOCR {
         
         for rect in insetMergeLabelRects {
             let widthOK  = rect.size.width  >= 7
-            let heightOK = rect.size.height >= 14
+            let heightOK = rect.size.height >= 8
             
             if widthOK && heightOK {
                 filteredMergeLabelRects.append(rect)
