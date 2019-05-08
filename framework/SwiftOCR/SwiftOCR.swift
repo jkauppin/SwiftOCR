@@ -367,8 +367,8 @@ open class SwiftOCR {
             let minDim = min(imageHeight!, imageWidth)
             let minMaxCorrect = (minX < maxX && minY < maxY)
             
-            let notToTall    = Double(maxY - minY) < Double(minDim) * 0.25 
-            let notToWide    = Double(maxX - minX) < Double(minDim) * 0.25 
+            let notToTall    = Double(maxY - minY) < Double(minDim) * 0.75 
+            let notToWide    = Double(maxX - minX) < Double(minDim) * 0.50 
             let notToLow     = Double(maxY - minY) > Double(minDim) * 0.05 
             let notToThin    = Double(maxX - minX) > Double(minDim) * 0.03 
             
